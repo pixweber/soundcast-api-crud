@@ -21,11 +21,17 @@ You can install the project with Composer or Docker
 `php bin/console doctrine:fixtures:load` 
 
 ### Docker
-Run with command to launch the application with docker
+Run with command to launch Docker containers
 `docker-compose up -d`
 
-Application must be available at http://localhost:8000
+SSH into sf4_apache container to install the application\
+`docker exec -it sf4_apache /bin/bash`
 
+Inside sf4_apache container\
+`cd /home/wwwroot/sf4`
+`git clone https://github.com/pixweber/soundcast-api-crud .`
+
+Then application should be available at http://localhost:80
 
 ## Documentation
 You can run the project with 
