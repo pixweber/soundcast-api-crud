@@ -21,6 +21,10 @@ You can install the project with Composer or Docker
 `php bin/console doctrine:fixtures:load` 
 
 ### Docker
+Run with command to launch the application with docker
+`docker-compose up -d`
+
+Application must be available at http://localhost:8000
 
 
 ## Documentation
