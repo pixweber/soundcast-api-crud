@@ -18,7 +18,7 @@ You can install the project with Composer or Docker
 `php bin/console doctrine:migrations:migrate`
 
 - Add fake data for (Users, Campagnes, Events)
-`php bin/console doctrine:fixtures:load`
+`php bin/console doctrine:fixtures:load` 
 
 ### Docker
 
