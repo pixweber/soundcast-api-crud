@@ -63,7 +63,7 @@ User
 Report\
 `/api/report?group_by=group_by_param`
 
-group_by_param can be : date, ip, country, type
+group_by_param can be : type, ip, country, city, date 
 
 ## Demo
 Coming soon
