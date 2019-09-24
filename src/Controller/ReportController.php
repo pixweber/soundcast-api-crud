@@ -14,8 +14,7 @@ class ReportController extends AbstractController
     /**
      * @Route("/api/report", name="report")
      */
-    public function index(Request $request, EntityManagerInterface $entityManager)
-    {
+    public function index(Request $request, EntityManagerInterface $entityManager) {
 
         $groupBy = $request->get('group_by');
 
@@ -31,7 +30,5 @@ class ReportController extends AbstractController
         return $this->render('report/index.html.twig', [
             'report' => $report,
         ]);
-
-
     }
 }

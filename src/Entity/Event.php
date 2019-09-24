@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource()
@@ -37,16 +38,19 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Ip()
      */
     private $ip;
 
     /**
      * @ORM\Column(type="string", length=10)
+     * @Assert\NotBlank()
      */
     private $country;
 
     /**
      * @ORM\Column(type="string", length=160)
+     * @Assert\NotBlank()
      */
     private $city;
 
