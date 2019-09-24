@@ -21,7 +21,7 @@ You can install the project with Composer or Docker
 `php bin/console doctrine:fixtures:load`
 
 ### Docker
-Coming soon
+
 
 ## Documentation
 You can run the project with 
@@ -30,7 +30,7 @@ You can run the project with
 `php bin/console server:run`
 
 - WAMP / MAMP
-Create a virtual host with the root path to ../public folder
+Create a virtual host with the root path to ../application/public folder
 
 ## Documentation
 API should be available at http://localhost:YOURPORT/api
