@@ -29,16 +29,21 @@ class Campagne
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank()
+     * @Assert\Date()
      */
     private $startDate;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank()
+     * @Assert\Date()
      */
     private $endDate;
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank()
      */
     private $price;
 

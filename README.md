@@ -83,3 +83,7 @@ Check reports\
 
 Admin dashboard\
 `http://soundcast-api-crud.herokuapp.com/admin/`
+
+## Unit tests
+Using PHPUnit to implement unit tests\
+`phpunit tests`

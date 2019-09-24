@@ -56,6 +56,7 @@ class Event
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank()
      */
     private $date;
 
