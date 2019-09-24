@@ -270,6 +270,9 @@
     "symfony/asset": {
         "version": "v4.3.4"
     },
+    "symfony/browser-kit": {
+        "version": "v4.3.4"
+    },
     "symfony/cache": {
         "version": "v4.3.4"
     },
@@ -292,6 +295,9 @@
             "./config/bootstrap.php"
         ]
     },
+    "symfony/css-selector": {
+        "version": "v4.3.4"
+    },
     "symfony/debug": {
         "version": "v4.3.4"
     },
@@ -299,6 +305,9 @@
         "version": "v4.3.4"
     },
     "symfony/doctrine-bridge": {
+        "version": "v4.3.4"
+    },
+    "symfony/dom-crawler": {
         "version": "v4.3.4"
     },
     "symfony/dotenv": {
