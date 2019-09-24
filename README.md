@@ -34,7 +34,7 @@ You can run the project with
 `php bin/console server:run`
 
 - WAMP / MAMP
-Create a virtual host with the root path to ../application/public folder
+Create a virtual host with the root path to ../public folder
 
 ## Documentation
 API should be available at http://localhost:YOURPORT/api
