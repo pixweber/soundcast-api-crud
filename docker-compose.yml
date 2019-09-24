@@ -6,7 +6,7 @@ services:
         ports:
           - 80:80
         volumes:
-          - .docker/config/vhosts:/etc/apache2/sites-available
+          - .docker/config/vhosts:/etc/apache2/sites-enabled
           - .:/home/wwwroot/sf4
         depends_on:
           - php
