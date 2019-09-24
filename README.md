@@ -64,7 +64,7 @@ PUT /api/users/{id} Replaces the User resource.
 Report
 /api/report?group_by=group_by_param
 
-group_by_param can be : date, ip, country (code), type
+group_by_param can be : date, ip, country, type
 
 ## Demo
 Coming soon
