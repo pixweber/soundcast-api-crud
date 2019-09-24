@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource()
@@ -22,16 +23,20 @@ class User
 
     /**
      * @ORM\Column(type="string", length=120)
+     * @Assert\NotBlank()
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=120)
+     * @Assert\NotBlank()
      */
     private $lastName;
 
     /**
      * @ORM\Column(type="string", length=160)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
 
@@ -50,22 +55,40 @@ class User
      */
     private $events;
 
+    /**
+     * @ORM\Column(type="string", length=60)
+     */
+    private $username;
+
+    /**
+     * User constructor.
+     */
     public function __construct()
     {
         $this->campagnes = new ArrayCollection();
         $this->events = new ArrayCollection();
     }
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     */
     public function getFirstName(): ?string
     {
         return $this->firstName;
     }
 
+    /**
+     * @param string $firstName
+     * @return User
+     */
     public function setFirstName(string $firstName): self
     {
         $this->firstName = $firstName;
@@ -73,11 +96,18 @@ class User
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getLastName(): ?string
     {
         return $this->lastName;
     }
 
+    /**
+     * @param string $lastName
+     * @return User
+     */
     public function setLastName(string $lastName): self
     {
         $this->lastName = $lastName;
@@ -85,11 +115,18 @@ class User
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
+    /**
+     * @param string $email
+     * @return User
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -97,11 +134,18 @@ class User
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getCompanyName(): ?string
     {
         return $this->companyName;
     }
 
+    /**
+     * @param string|null $companyName
+     * @return User
+     */
     public function setCompanyName(?string $companyName): self
     {
         $this->companyName = $companyName;
@@ -117,6 +161,10 @@ class User
         return $this->campagnes;
     }
 
+    /**
+     * @param Campagne $campagne
+     * @return User
+     */
     public function addCampagne(Campagne $campagne): self
     {
         if (!$this->campagnes->contains($campagne)) {
@@ -127,6 +175,10 @@ class User
         return $this;
     }
 
+    /**
+     * @param Campagne $campagne
+     * @return User
+     */
     public function removeCampagne(Campagne $campagne): self
     {
         if ($this->campagnes->contains($campagne)) {
@@ -148,6 +200,10 @@ class User
         return $this->events;
     }
 
+    /**
+     * @param Event $event
+     * @return User
+     */
     public function addEvent(Event $event): self
     {
         if (!$this->events->contains($event)) {
@@ -158,6 +214,10 @@ class User
         return $this;
     }
 
+    /**
+     * @param Event $event
+     * @return User
+     */
     public function removeEvent(Event $event): self
     {
         if ($this->events->contains($event)) {
@@ -167,6 +227,25 @@ class User
                 $event->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString() {
+        return $this->getFirstName() . ' ' . $this->getLastName();
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
 
         return $this;
     }

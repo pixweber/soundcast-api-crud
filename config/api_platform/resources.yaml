@@ -1,0 +1,7 @@
+App\Entity\User:
+    itemOperations:
+        get:
+            method: 'GET'
+            path: '/api/users/{id}'
+            requirements:
+                id: '\d+'

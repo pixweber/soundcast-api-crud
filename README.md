@@ -19,3 +19,16 @@ You can install the project with Composer or Docker
 
 ### Docker
 Coming soon
+
+## Documentation
+You can run the project with 
+
+- built-in server\
+`php bin/console server:run`
+
+- WAMP / MAMP
+Create a virtual host with the root path to ../public folder
+
+## Demo
+Coming soon
+

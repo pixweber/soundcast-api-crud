@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
  */
 class Event
@@ -53,16 +55,26 @@ class Event
      */
     private $date;
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     */
     public function getType(): ?string
     {
         return $this->type;
     }
 
+    /**
+     * @param string $type
+     * @return Event
+     */
     public function setType(string $type): self
     {
         $this->type = $type;
@@ -70,11 +82,18 @@ class Event
         return $this;
     }
 
+    /**
+     * @return User|null
+     */
     public function getUser(): ?User
     {
         return $this->user;
     }
 
+    /**
+     * @param User|null $user
+     * @return Event
+     */
     public function setUser(?User $user): self
     {
         $this->user = $user;
@@ -82,11 +101,18 @@ class Event
         return $this;
     }
 
+    /**
+     * @return Campagne|null
+     */
     public function getCampagne(): ?Campagne
     {
         return $this->campagne;
     }
 
+    /**
+     * @param Campagne|null $campagne
+     * @return Event
+     */
     public function setCampagne(?Campagne $campagne): self
     {
         $this->campagne = $campagne;
@@ -94,11 +120,18 @@ class Event
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getIp(): ?string
     {
         return $this->ip;
     }
 
+    /**
+     * @param string|null $ip
+     * @return Event
+     */
     public function setIp(?string $ip): self
     {
         $this->ip = $ip;
@@ -106,11 +139,18 @@ class Event
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getCountry(): ?string
     {
         return $this->country;
     }
 
+    /**
+     * @param string $country
+     * @return Event
+     */
     public function setCountry(string $country): self
     {
         $this->country = $country;
@@ -118,11 +158,18 @@ class Event
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getCity(): ?string
     {
         return $this->city;
     }
 
+    /**
+     * @param string $city
+     * @return Event
+     */
     public function setCity(string $city): self
     {
         $this->city = $city;
@@ -130,15 +177,29 @@ class Event
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }
 
+    /**
+     * @param \DateTimeInterface $date
+     * @return Event
+     */
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
 
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function __toString() {
+        return $this->getType();
     }
 }

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\CampagneRepository")
  */
 class Campagne
@@ -38,6 +40,8 @@ class Campagne
      */
     private $price;
 
+
+
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="campagnes")
      * @ORM\JoinColumn(nullable=false)
@@ -49,21 +53,34 @@ class Campagne
      */
     private $events;
 
+    /**
+     * Campagne constructor.
+     */
     public function __construct()
     {
         $this->events = new ArrayCollection();
     }
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
+    /**
+     * @param string $name
+     * @return Campagne
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -71,11 +88,18 @@ class Campagne
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getStartDate(): ?\DateTimeInterface
     {
         return $this->startDate;
     }
 
+    /**
+     * @param \DateTimeInterface $startDate
+     * @return Campagne
+     */
     public function setStartDate(\DateTimeInterface $startDate): self
     {
         $this->startDate = $startDate;
@@ -83,11 +107,18 @@ class Campagne
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getEndDate(): ?\DateTimeInterface
     {
         return $this->endDate;
     }
 
+    /**
+     * @param \DateTimeInterface $endDate
+     * @return Campagne
+     */
     public function setEndDate(\DateTimeInterface $endDate): self
     {
         $this->endDate = $endDate;
@@ -95,11 +126,18 @@ class Campagne
         return $this;
     }
 
+    /**
+     * @return float|null
+     */
     public function getPrice(): ?float
     {
         return $this->price;
     }
 
+    /**
+     * @param float $price
+     * @return Campagne
+     */
     public function setPrice(float $price): self
     {
         $this->price = $price;
@@ -107,11 +145,18 @@ class Campagne
         return $this;
     }
 
+    /**
+     * @return User|null
+     */
     public function getUser(): ?User
     {
         return $this->user;
     }
 
+    /**
+     * @param User|null $user
+     * @return Campagne
+     */
     public function setUser(?User $user): self
     {
         $this->user = $user;
@@ -127,6 +172,10 @@ class Campagne
         return $this->events;
     }
 
+    /**
+     * @param Event $event
+     * @return Campagne
+     */
     public function addEvent(Event $event): self
     {
         if (!$this->events->contains($event)) {
@@ -137,6 +186,10 @@ class Campagne
         return $this;
     }
 
+    /**
+     * @param Event $event
+     * @return Campagne
+     */
     public function removeEvent(Event $event): self
     {
         if ($this->events->contains($event)) {
@@ -148,5 +201,12 @@ class Campagne
         }
 
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function __toString() {
+        return $this->getName();
     }
 }
