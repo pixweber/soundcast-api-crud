@@ -70,5 +70,10 @@ Report\
 group_by_param can be : type, ip, country, city, date 
 
 ## Demo
-Coming soon
+`https://soundcast-api-crud.herokuapp.com/api/`
 
+Check reports\
+`https://soundcast-api-crud.herokuapp.com/api/report?group_by=country`
+
+Admin dashboard\
+`http://soundcast-api-crud.herokuapp.com/admin/`
